@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    background-color: #111;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+  
+  .overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .overlay p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    background-color: #0a74da;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #005bb5;
+  }
+  
+  .gallery-section {
+    padding: 60px 20px;
+    background-color: #1b1b1b;
+    text-align: center;
+  }
+  
+  .gallery-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .gallery img {
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #aaa;
+  }
+
+
+  .slogan-section {
+    height: 100vh;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .slogan-section h2 {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    max-width: 1000px;
+  }
+  
+  .vurgulu {
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .fade-text {
+    color: #555;
+    transition: all 0.6s ease-in-out;
+  }
+ 
+
+  .scroll-yazi {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    padding: 40px;
+  }
+  
+  .scroll-text {
+    font-size: 2.2rem;
+    color: white;
+    max-width: 800px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+  }
+  .scroll-text.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .services-section {
+    background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .services-section p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 40px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .service-card {
+    min-width: 220px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+    scroll-snap-align: center;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  
+  .service-card .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  

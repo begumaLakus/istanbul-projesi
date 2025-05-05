@@ -2,9 +2,79 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>İstanbul Tanıtım Sitesi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galata Kulesi - Anasayfa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Hoş geldiniz!</h1>
+  <!-- Arka Plan Video ve Giriş Alanı -->
+  <header class="hero-section">
+    <video autoplay muted loop class="bg-video">
+      <source src="video/galata.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h1 data-aos="fade-down">İstanbul’un Kalbi: Galata</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Zamanda bir yolculuğa hazır mısınız?</p>
+      <a href="#galeri" class="btn" data-aos="zoom-in" data-aos-delay="400">Keşfet</a>
+    </div>
+  </header>
+
+
+  <section class="scroll-yazi">
+    <p class="scroll-text">
+        "Yedi Tepeli Şehirde Zaman Durmaz…Tarihin izinde, efsanelerin gölgesinde; Boğaz’ın kıyısından surların kalbine uzanan bir İstanbul yolculuğuna hoş geldiniz.".
+    </p>
+  </section>
+  
+
+  <section class="services-section">
+    <h2>SİTEMİZİ KEŞFEDİN</h2>
+    <p>“İstanbul’un ruhunu, kod satırlarına işledik.”</p>
+  
+    <div class="card-container">
+      <div class="service-card">
+        <h3>TARİHİ HAZİNELER</h3>
+      </div>
+
+      <div class="service-card">
+        <h3>HALK HİKAYELERİ VE MİTLER </h3>
+      </div>
+
+      <div class="service-card">
+        <h3>BİR BİLENE SOR !</h3>
+      </div>
+
+      <div class="service-card">
+        <h3>HARİTA</h3>
+      </div>
+
+
+      <div class="service-card">
+        <h3>HAKKIMIZDA</h3>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <!-- Galeri Alanı -->
+  <section class="gallery-section" id="galeri">
+    <h2 data-aos="fade-up">Galata Kulesi’nden Kareler</h2>
+    <div class="gallery">
+      <img src="img/galata1.jpg" alt="Galata 1" data-aos="fade-right">
+      <img src="img/galata2.jpg" alt="Galata 2" data-aos="fade-left">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 İstanbul Tarihi | Galata Kulesi</p>
+  </footer>
+
+  <!-- Scroll Animasyon JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+
 </body>
 </html>
