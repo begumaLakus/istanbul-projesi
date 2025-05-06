@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>İstanbul Bilgi Balonu</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Buton */
+    #info-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #8B0000;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 25px;
+      border: none;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    #info-btn:hover {
+      background-color: #a30000;
+    }
+
+    /* Bilgi Kutusu (baloncuk) */
+    #info-box {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: linear-gradient(145deg, #8B0000, #600000);
+      color: #f1f2f6;
+      border-radius: 20px 20px 20px 0;
+      padding: 24px;
+      width: 450px;
+      min-height: 180px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      display: none;
+      font-size: 18px;
+      z-index: 999;
+      transition: all 0.3s ease;
+      max-height: 90%; /* Kutu boyutunu yazı uzunluğuna göre belirlemek için max-height kullanıyoruz */
+      overflow: hidden; /* Scroll bar eklenmesin */
+    }
+
+    /* Alt üçgen pointer */
+    #info-box::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      right: 40px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 12px solid #8B0000;
+    }
+
+    #info-text {
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.5;
+    }
+
+    /* Kapatma butonu - sağ alt köşede */
+    #info-box button {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: #ff4757;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    #info-box button:hover {
+      background-color: #e84118;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="info-btn" onclick="showInfoBox()">Bunu Biliyor Muydunuz?</button>
+
+  <div id="info-box">
+    <div id="info-text"></div>
+    <button onclick="closeInfoBox()">Kapat</button>
+  </div>
+
+  <script>
+    const bilgiler = [
+      "İstanbul, hem Avrupa hem Asya kıtasında yer alan tek şehirdir.",
+      "Ayasofya’nın dilek taşı: Ayasofya’nın içinde “terleyen sütun” ya da “dilek taşı” denen bir yer var; parmağınızı deliğe sokup çevirirseniz dileğinizin kabul olacağı söylenir.",
+      "Boğaziçi Köprüsü, 15 Temmuz Şehitler Köprüsü olarak da bilinir ve kıtaları birbirine bağlayan en önemli geçiş yollarındandır.",
+      "Su altı sarnıcı: Yerebatan Sarnıcı’nda, ters yerleştirilmiş Medusa başlı sütunlar bulunur. Neden ters konulduğu hâlâ tam bilinmiyor; ama turistler için en ilginç yerlerden biri.",
+      "Kapalıçarşı'da 60'tan fazla sokak ve 4000'e yakın dükkan vardır. Günde 250 bin ziyaretçiyi ağırlar.",
+      "İstanbul Boğazı'nda zaman zaman yunuslara rastlanabilir. Özellikle sabah saatlerinde tekneleri takip ettikleri gözlemlenmiştir.",
+      "Pierre Loti Tepesi, manzarasıyla İstanbul’un en romantik noktalarından biridir. Teleferikle ulaşım mümkündür.",
+      "Miniatürk, Türkiye'nin ve Osmanlı coğrafyasının önemli eserlerinin minyatürlerini barındırır.",
+      "İstanbul Modern, çağdaş sanatın kalbidir ve sık sık sergi değişimi olur.",
+      "Tarihi yarımada Roma, Bizans ve Osmanlı izlerini bir arada sunar. Her köşe başı başka bir hikâye barındırır.",
+      "Fener ve Balat semtleri, renkli evleri, kiliseleri ve sokak arası kafeleriyle ünlüdür.",
+      "Fatih’in İstanbul fethi: Rivayete göre Fatih Sultan Mehmet, gemileri karadan yürütüp Haliç’e indirerek Bizans’ı büyük bir şaşkınlığa uğrattı. Bugün bu olayın geçtiği yerlerde tabelalar bulunuyor.",
+      "Hipodrom yarışları: Bizans döneminde Sultanahmet Meydanı’nda yer alan Hipodrom, at arabası yarışlarının merkeziydi. O dönemde bu yarışlar öyle ciddiye alınırdı ki bazen siyasi olaylara bile yol açardı!",
+      "İstanbul, 3 büyük imparatorluğa başkentlik yapmış dünyadaki tek şehirdir: Roma, Bizans ve Osmanlı.",
+      "Çinili Kedi: Topkapı Sarayı’ndaki Çinili Köşk’te hep bir kedi gezinir. Söylentiye göre sarayda kedilerin korunması Osmanlı geleneğiymiş; hala sarayda onlara rastlamak mümkün!",
+      "Minyatür Boğaz köprüsü: Miniatürk Parkı’nda İstanbul’un tüm tarihi yapılarının minyatür halleri bulunur. Küçük bir adımda kıtalar arası geçiş yapabilirsiniz!",
+      "Haydarpaşa Garı, Osmanlı-Alman iş birliğiyle yapılmış mimari bir başyapıttır.",
+      "Adalar’da motorlu taşıt kullanımı yasaktır. Ulaşım bisiklet, elektrikli araç ve yürüyüşle sağlanır.",
+      "Tarihi yangın kuleleri: Beyoğlu’ndaki Galata Kulesi’nin en üst katından zamanında İstanbul’daki yangınları gözlemlemek için bakılırdı. Hatta Hezarfen Ahmet Çelebi, bu kuleden uçarak Üsküdar’a indiği rivayet edilir.",
+      "Lale çılgınlığı: Osmanlı’da 18. yüzyılda yaşanan “Lale Devri” sırasında laleler öyle popülerdi ki bazı insanlar sırf lale yetiştirdiği için zengin olmuştu. Lale, İstanbul’un simgesi haline geldi.",
+      "Kız Kulesi’nin sırrı: Kız Kulesi, İstanbul Boğazı’ndaki en bilinen simgelerden biridir ve halk arasında pek çok efsane anlatılmaktadır. En ünlüsü, burada bir prensesin hapis tutulduğudur.",
+      "Topkapı Sarayı’ndaki kutsal emanetler, İslam dünyasının en değerli koleksiyonlarından biridir ve her yıl binlerce kişi tarafından ziyaret edilir.",
+      "Galata Kulesi, İstanbul’un en eski yapılarından biridir ve şehri yüksekten görmek isteyenler için muazzam bir manzara sunar."
+    ];
+
+    let currentIndex = -1;
+    let timeoutId;
+
+    function showInfoBox() {
+      const box = document.getElementById("info-box");
+      const text = document.getElementById("info-text");
+
+      currentIndex = (currentIndex + 1) % bilgiler.length;
+      text.textContent = bilgiler[currentIndex];
+      box.style.display = "block";
+
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(closeInfoBox, 30000);
+    }
+
+    function closeInfoBox() {
+      document.getElementById("info-box").style.display = "none";
+    }
+
+    document.getElementById("info-btn").addEventListener("click", showInfoBox);
+  </script>
+
+</body>
+</html>
+
