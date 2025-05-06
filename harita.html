@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İstanbul Haritası</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 30px 10px 10px;
+      font-size: 2rem;
+      color: #ffd700;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    #map {
+      height: 80vh;
+      width: 90%;
+      margin: 20px auto 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>🗺️ İstanbul Üzerindeki Önemli Yerler</h2>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([41.0082, 28.9784], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap katkıcıları'
+    }).addTo(map);
+
+    var yerler = [
+      { ad: "Ayasofya", konum: [41.0086, 28.9802] },
+      { ad: "Topkapı Sarayı", konum: [41.0115, 28.9834] },
+      { ad: "Galata Kulesi", konum: [41.0256, 28.9744] },
+      { ad: "Sultanahmet Camii", konum: [41.0054, 28.9768] },
+      { ad: "Kapalı Çarşı", konum: [41.0106, 28.9680] },
+      { ad: "Yerebatan Sarnıcı", konum: [41.0084, 28.9779] },
+      { ad: "Dolmabahçe Sarayı", konum: [41.0390, 29.0007] },
+      { ad: "Süleymaniye Camii", konum: [41.0164, 28.9633] },
+      { ad: "Kız Kulesi", konum: [41.0211, 29.0045] },
+      { ad: "Kadıköy Boğa Heykeli", konum: [40.9892, 29.0282] },
+      { ad: "İstiklal Caddesi", konum: [41.0369, 28.9850] },
+      { ad: "Fener Rum Patrikhanesi", konum: [41.0304, 28.9498] },
+      { ad: "Aya Yorgi Kilisesi", konum: [40.8670, 29.1216] },
+      { ad: "Eminönü Meydanı", konum: [41.0169, 28.9711] },
+      { ad: "Emirgan Korusu", konum: [41.1082, 29.0552] },
+      { ad: "Atatürk Arboretumu", konum: [41.1744, 29.0253] },
+      { ad: "Adalar (Büyükada)", konum: [40.8698, 29.1204] }
+    ];
+
+    yerler.forEach(function(yer) {
+      L.marker(yer.konum).addTo(map)
+        .bindPopup(`<b>${yer.ad}</b>`);
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("/components/info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
