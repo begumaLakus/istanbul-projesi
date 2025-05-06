@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/sahaflar.jpg" >
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2> Sayfalarda Saklı Zaman: Sahaflar Çarşısı’nın Hikâyesi</h2>
+    <pre>
+
+        İstanbul’da bazı yerler vardır ki sessizdir…
+        Ama o sessizlikte binlerce ses yankılanır.
+        Bir sayfa çevrilir, bir tarih canlanır.
+        Bir el kitap seçer, bir hafıza açılır.        
+        İşte o yer: Sahaflar Çarşısı.
+        Kelimenin tam anlamıyla: İstanbul’un kitapla atan kalbi.
+        
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2> Bir Osmanlı Geleneği</h2>
+    <pre>
+        Sahaflar Çarşısı’nın kökleri, 15. yüzyıla, yani Fatih Sultan Mehmet dönemine kadar uzanır.
+        İlk olarak Beyazıt Camii’nin hemen yanına, medrese öğrencilerinin ihtiyaç duyduğu 
+        kitapları sağlamak amacıyla kurulmuştur.
+        Ama burası bir “kitapçı sokağı” değil...
+        Osmanlı’dan günümüze kalan bir entellektüel mahfildir.
+        Burada sadece kitap alınmaz, bilgi devredilir.
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>El Yazmalarından Modern Baskıya</h2>
+    <pre>
+        Çarşı, Osmanlı döneminde “sahaf” denen el yazması kitap satan esnafla doluydu.
+        Bazıları Kur’an hattatıydı.
+        Bazıları astronomi, tıp, felsefe metinleri bulundururdu.
+        Bazıları da yitik dillerde, yitik kitapların izini sürerdi.
+        Tanzimat’tan sonra, matbaa yaygınlaşınca, sahaflar da modernleşti.
+        Ama gelenek kaybolmadı:Bir sahafın rafında hâlâ 1800’lerden kalma bir sözlük bulabilirsin.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Yangınlar, Devrimler ve Direniş</h2>
+    <pre>
+        Sahaflar Çarşısı da İstanbul gibi çok şey gördü.
+        Yangınlar atlattı, baskınlar yaşadı, sansürle savaştı.
+        Ama hep bir şekilde yeniden açıldı.
+        Çünkü kitap yanmaz; sadece yer değiştirir.
+        Bugün Sahaflar Çarşısı hâlâ Beyazıt’ta, İstanbul Üniversitesi’nin gölgesinde…
+        Dar bir avlu, taş zemin, demir raflar…
+        Ve saygıyla eğilen insanlar.
+        Burada alışveriş aceleye gelmez.
+        Bir kitap seçmek, bir dost seçmek gibidir.
+        Bazı dükkânlarda kitaplar değil; haritalar, afişler, kartpostallar, Osmanlıca belgeler vardır.
+        Bazı dükkânlarda ise sadece sessizlik...
+
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

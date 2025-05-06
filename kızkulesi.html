@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/kız kulesi.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Boğazın Ortasında Bir Masal: Kız Kulesi’nin Hikâyesi</h2>
+    <pre>
+        İstanbul Boğazı’nın sularında, tek başına duran bir kule…
+        Ne tam karada ne de tamamen denizde.
+        Tarihle, aşkla, efsaneyle iç içe bir yalnızlık.
+        Burası Kız Kulesi.
+        Ve o sadece bir yapı değil,İstanbul’un gözyaşıyla yazılmış en güzel şiirlerinden biridir.
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Tarihin Başlangıcı</h2>
+    <pre>
+        Kız Kulesi’nin geçmişi MÖ 5. yüzyıla, Antik Yunan dönemine kadar uzanır.
+        Bizanslılar zamanında bir gözetleme kulesi olarak kullanıldı.
+        Roma döneminde vergi kontrol noktasıydı.
+        Osmanlı'da ise hem deniz feneri, hem sürgün yeri, hem de karantina istasyonu oldu.
+        Yani tarih boyunca Kız Kulesi, şekil değiştiren ama hep gözetleyen bir yapıydı.
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Efsanelerin Kalesi</h2>
+    <pre>
+        Ama Kız Kulesi’ni asıl özel kılan şey: efsaneleri.Kehanetin Kaderi
+        Bir Bizans kralı, kızının ölümüne sebep olacak bir yılan tarafından sokulacağını öğrenir.
+        Kızı ne sarayda, ne şehirde güvende…Çareyi denizin ortasında kule yaptırmakta bulur.
+        Ama kaderden kaçış olmaz:Bir üzüm sepetinin içinden çıkan yılan, prensesi burada sokar.
+        Ve kule, bu hikâyeyle “Kız Kulesi” adını alır.
+        Leandros ve Hero’nun Aşkı
+        Bir diğer efsanede, kulede bir rahibe olan Hero, kıyıda yaşayan Leandros'a âşık olur.
+        Leandros, her gece Boğaz’ı yüzerek kuleye gelir.Ama bir gece fırtına çıkar… fener söner… Leandros kaybolur.
+        Hero ise sevdiği için kendini denize bırakır.
+        Aşk, Boğaz’ın sularına düşer.Ve kule, o günden sonra aşıkların bekçisi olur.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Gerçek Tarihte Kız Kulesi</h2>
+    <pre>
+        Fatih Sultan Mehmet döneminde askeri amaçlarla kullanıldı.
+        18.yüzyılda baruthane oldu.
+        19.yüzyılda deniz fenerine çevrildi.
+        Cumhuriyet döneminde ise İstanbul’un simgesi hâline geldi.
+        Her dönemde yenilendi, restore edildi…Ama o her zaman aynı yerde, aynı yalnızlıkta kaldı.
+        Bugün bir müze, bir restoran, bir manzara noktası…
+        Ama daha çok:İstanbul’da “sessizliği” arayanların yeri.
+        Ziyaretçiler sandalla gelir,Surlarına dokunur,İçeride çay içer,
+        Ve o meşhur camdan İstanbul’a bakarken içinden geçeni fısıldar:
+        “Sen bu şehrin kalbisin…”
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

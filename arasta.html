@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/arasta.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2> Sessiz Taşlar Arasında: Arasta Çarşısı’nın Hikâyesi</h2>
+    <pre>
+        İstanbul’un en kalabalık meydanında, Sultanahmet’in ihtişamı göklere yükselirken…
+        Hemen arkasında bir çarşı vardır.Gösterişli değil, kalabalık değil, ama kendine özgü bir asaleti vardır.
+        Burası: Arasta Çarşısı.Bir zamanlar ustaların, şimdi ise zamanın ev sahibidir.
+
+
+    
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2> Sarayın Arka Bahçesi</h2>
+    <pre>
+        Arasta kelimesi, Osmanlı’da “ustaların sokağı” anlamına gelir.
+        Bu çarşı da, Sultanahmet Camii Külliyesi’nin bir parçası olarak inşa edilmiştir.
+        17. yüzyılda, camiye gelir getirmesi amacıyla vakfedilmiş bir ticaret alanıdır.
+        Yani burası sıradan bir çarşı değil, 
+        kutsal bir yapıyı yaşatmak için kurulmuş bir hayat damaradır.
+        Tarihi boyunca Arasta, özel zanaatlarla anıldı:
+        - Halı ve kilim dokumacıları
+        - Cilt ustaları
+        - El işi gümüşçüler
+        - Dericiler
+        - Tespihçiler…
+        Yani burası bir “alışveriş merkezi” değil; bir el emeği müzesiydi.
+        Her dükkân, bir atölyeydi.Her vitrin, bir ustalık nişanı…
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Yangınlar ve Yeniden Doğuş</h2>
+    <pre>
+        Zamanla çarşı ihmal edildi, hatta yandı.
+        Uzun yıllar harabe hâlinde kaldı.
+        Ama 1980'lerde İstanbul’un kültürel hafızasını yaşatma çabalarıyla restore edildi.
+        Ve yeniden hayat buldu.
+        Artık burada, hem geleneksel Türk sanatları satılıyor…
+        Hem de turistlere İstanbul’un geçmişi fısıldanıyor.
+        Kapalıçarşı kadar kalabalık değil…
+        Mısır Çarşısı kadar kokulu da değil…
+        Ama Arasta Çarşısı’nın başka bir özelliği var:
+        Zamanda yürüyormuşsun gibi hissettirmesi.
+        Adımların taşlara vurdukça, bir zaman tünelinde kaybolursun.
+        Ve en güzeli? Tam altında bir müze:
+        Mozaik Müzesi — Bizans döneminden kalma kalıntıların üzerine kurulmuş bu çarşı,
+        adeta geçmişin üstünde yükseliyor.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Arasta: Ustalığın Sokağı, Sessizliğin Mirası</h2>
+    <pre>
+        Bugün Arasta Çarşısı’nda bir halıya dokunmak,
+        Sadece bir kumaşa değil…
+        Bir Osmanlı ustasının parmak izine dokunmaktır.
+        Ve bir şey satın alırsan, aslında bir hikâye alırsın.
+
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/yıldız-sarayı.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Sessiz Bahçelerde Yazılmış Bir Son: Yıldız Sarayı’nın Hikâyesi</h2>
+    <pre>
+        İstanbul’un Beşiktaş sırtlarında, koruların içinde saklanan bir saray…
+        Görkemli değil, ama gizemli.
+        Kalabalık değil, ama güçlü.
+        İşte o saray: Yıldız Sarayı.
+        Bir Osmanlı sultanının kalbinin attığı, korkularının fısıldandığı, kararlarının gizli kapılar ardında verildiği yer.
+    
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>  Sultanların Gölgesinde Doğan Bir Saray</h2>
+    <pre>
+        Yıldız Korusu, aslında III. Selim zamanından beri padişahların mesire alanıydı.
+        Ama gerçek saray olarak yükselmesi, bir isimle anılır:Sultan II. Abdülhamid.
+        Dolmabahçe Sarayı'nın Batılı mimarisine rağmen, denize fazla açık ve "göz önünde" olması onu huzursuz eder.
+        Bu yüzden Boğaz’dan biraz içeride, ormanla çevrili, gizli bir merkez ister.
+        Ve 1877'de Yıldız Sarayı’nı padişah konutu yapar.Yıldız Sarayı tek bir yapı değildir.
+        Bir saray kompleksi, adeta minyatür bir şehir gibidir:
+        Cihannüma Köşkü: Merkez bina, Abdülhamid’in yönetim merkezi.
+        Şale Köşkü: Devlet konuklarını ağırlamak için inşa edildi; 
+        içinde Avrupa’dan getirilen mobilyalar, kristal aynalar.
+        Tiyatro Binası: Sarayın kalbinde sanat vardı; sultan oyunlar izlerdi.
+        Atölyeler, kütüphaneler, marangozhane: Evet, marangozhane! Çünkü II. Abdülhamid bizzat mobilya yapardı.
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Tahttan İniş, Sessizlik ve Unutuluş</h2>
+    <pre>
+        1909 yılında II. Abdülhamid tahttan indirildiğinde, onu Selanik’e sürgüne gönderirler.
+        Saray kısa süre içinde boşalır.İttihatçılar için burası bir "eski düzenin" simgesidir.
+        Bir zamanlar binlerce görevlinin çalıştığı, saat gibi işleyen sistem artık bir anı defteri gibidir.
+        Cumhuriyet döneminde saray uzun süre sessiz kalır. Bir süre askeriye, sonra sergi alanı, sonra restorasyon…
+        Bugün Yıldız Sarayı, yeniden açılan bölümleriyle halka kapılarını açmaya başladı.
+        Restorasyon sonrası Şale Köşkü ve Tiyatro binası ziyarete açık.
+        Ama hâlâ büyük bölümü gizli kalmış durumda.Sanki hâlâ bir sır fısıldıyor duvarlar:
+        “Burada bir padişah, yalnızlığıyla hükmetti...”
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Yıldız Sarayı: Korkunun Sessiz Mimarisi</h2>
+    <pre>
+        Bu saray, güçten doğmadı…
+        Korkudan, kontrolden, gizlilikten doğdu.
+        Ama bir o kadar da zarifti, bir o kadar da insaniydi.
+        Bugün o bahçelerde yürüyen biri, sadece ağaçlara değil…
+        Bir padişahın içine bakar.
+
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

@@ -16,10 +16,13 @@
   </header>
 
 
-  <section class="story-card">
-    <video src="video/sultanahmet.mp4" autoplay muted loop playsinline></video>
-  </section>
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/süleymaniye.jpg" >
+    </section>
+  </div>
   
+ 
 
   <!-- KART 1 -->
   <section class="story-card" data-aos="fade-up">
@@ -115,7 +118,7 @@
 <!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("/components/info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;

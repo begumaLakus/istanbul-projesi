@@ -19,7 +19,7 @@
 
   <div class="scroll-wrapper">
     <section class="panel">
-      <img src="img/topkapı.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+      <img src="img/mısır.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
     </section>
   </div>
   
@@ -96,7 +96,7 @@
 <!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("/components/info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
