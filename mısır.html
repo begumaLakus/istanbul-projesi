@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/topkapı.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Baharatın Kokusunda Saklı Zaman: Mısır Çarşısı’nın Hikâyesi</h2>
+    <pre>
+        İstanbul’un kalbinde bir çarşı var…
+        Her adımda tarçın, karanfil, zencefil... burnuna bir geçmiş zamanı fısıldayan kokularla dolu.
+        Renklerin, seslerin, baharatların birbirine karıştığı o büyülü yerin adı: Mısır Çarşısı.
+        Ama burası sadece alışveriş yapılan bir yer değil...
+        Burası, bir imparatorluğun ticaret atardamarı, bir halkın yaşam ritmi, bir kültürün vitrini…
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>17. Yüzyıl: Bir Vâkıfın İzinden</h2>
+    <pre>
+        Yıl 1660. Osmanlı İmparatorluğu’nun ihtişamlı yılları.
+        Valide Turhan Sultan — IV. Mehmed’in annesi — Yeni Camii Külliyesi’ni tamamlama kararı alır.
+        Ama cami yalnız olmayacaktır... Onu yaşatacak, finanse edecek bir yapı da gereklidir: bir çarşı.
+        İşte o çarşı, bugün bildiğimiz Mısır Çarşısı’dır.Başlangıçta adı "Yeni Çarşı"dır.
+        Ancak buraya gelen malların çoğu Mısır’dan geldiği için zamanla halk arasında adı değişir:“Mısır Çarşısı”
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Ticaretin Kalbi</h2>
+    <pre>
+        Osmanlı’da çarşılar sadece alışveriş için değildi.
+        Burası bir ekonomi okulu, bir toplum laboratuvarı gibiydi.
+        Baharatlar Hindistan’dan, ipekler İran’dan, kahveler Yemen’den...
+        Tüccarlar, seyyahlar, elçiler bu çarşının taşlarına adımlarını bırakırdı.
+        Her dükkânın bir kokusu vardı.Her esnafın sesi, yankısıyla duvarlara bir ezgi yazardı.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Yangınlar ve Direniş</h2>
+    <pre>
+        Mısır Çarşısı da İstanbul’un kaderini paylaşır: yangınlar, depremler, yağmurlar...
+        Özellikle 1940’taki büyük yangında büyük zarar görür.Ama her seferinde, tıpkı İstanbul gibi, küllerinden doğar.
+        Bugün Mısır Çarşısı’na adım attığında bir alışverişten fazlasını yaşarsın:Zamanla pazarlık yaparsın.
+        Bir kahveci sana geçmişten bir fincan uzatır.Bir aktar, yüz yıllık bir tarifin kokusunu anlatır.
+        Yaklaşık 90 dükkân hâlâ aktif.Baharatlar, şifalı otlar, lokumlar, doğal sabunlar, altın takılar...
+        Ama en çok satılan şey belki de: anı.
+
+
+    </pre>
+  </section>
+
+  <section class="story-card " data-aos="fade-up">
+    <h2>Mısır Çarşısı: Zamanı Satan Çarşı</h2>
+    <pre>
+        Bir yapı düşün...
+        Hem bir padişah annesinin hayrı,
+        hem bir şehir ekonomisinin kalbi,
+        hem de her gün binlerce insana nostalji satan bir sahne...
+        İşte Mısır Çarşısı budur.
+        Ve sen ne zaman oradan geçsen, sadece bir alışveriş yapmazsın.
+        Bir imparatorluktan kalan bir hatıraya dokunursun.
+    </pre>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("/components/info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

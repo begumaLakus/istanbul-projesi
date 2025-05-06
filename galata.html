@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/topkapı.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Göğe Yazılmış Efsane: Galata Kulesi</h2>
+    <pre>
+        Bazı yapılar yüksekten bakmak için değil,yukarıya bir anlam bırakmak için inşa edilir.
+        Galata Kulesi de onlardan biridir.
+        Kimi zaman bir gözcüdür, kimi zaman bir rüzgâra binmiş hayal.
+        Ama her zaman: İstanbul’un kalbine saplanmış bir niyet.
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Bir Bizans Gölgesi: İlk Kule</h2>
+    <pre>
+        Yıl 528.Doğu Roma İmparatoru I. Justinianus, Haliç’in karşısına bir fener kulesi yaptırır.
+        Ama kule ne denizi aydınlatır, ne karanlığı.Çünkü şehir, daha yeni büyümeye başlamıştır.
+        Yüzyıllar sonra, bu zayıf yapı yerle bir olur.Ama zemini, bir efsanenin temelini atmıştır.
+        1348.Cenevizliler İstanbul’un karşı kıyısında — Galata’da — ticaret kolonisi kurmuştur.
+        Ve ticaretin korunmaya ihtiyacı vardır.İşte o zaman yükselir Galata Kulesi.
+        Taş üstüne taş, savunma için değil;gözlem için yapılmıştır.
+        Adı: “Christea Turris” yani “İsa Kulesi”.Ama zaman geçtikçe şehir değişir, dil değişir, kule kalır.
+        Adı artık: Galata Kulesi.
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Osmanlı’da Kule: Gözetleyen, Uyaran, Susturan</h2>
+    <pre>
+        İstanbul fethedilir, kule Osmanlı’ya geçer.Ve artık o bir asker değil, bir gözcüdür.
+        Yangınların kabusu olduğu çağda, kuleye çıkan her görevli 
+        şehrin alevlerle dans etmesini önceden haber vermekle yükümlüdür.
+        Ama bir dönem daha vardır:Zindan olur.
+        Yalnızca gökyüzüne değil,kaderine de kapalıdır artık Galata.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Hezarfen ve Rüzgâr: Gökyüzüne Doğru Bir Dua</h2>
+    <p>
+        Yıl 1632.Evliya Çelebi anlatıyor:
+        Bir adam, kollarına kartal kanadı bağlayarak Galata Kulesi’ne çıkar.
+        Ve oradan uçar…Boğaz’ı aşar, Üsküdar’a kadar süzülür.
+        Adı: Hezarfen Ahmed Çelebi.
+        Kimi der efsane,kimi der gerçek.
+        Ama rüzgâr hâlâ Galata Kulesi’nin etrafında uçuşun niyetini taşır.
+    </p>
+  </section>
+
+
+  <!-- KART 3 -->
+  <section class="story-card" data-aos="fade-up">
+    <h2>Zamanla Sarsılan, Yeniden Dirilen</h2>
+    <pre>
+        Kule yüzyıllar boyunca yangınlarla, depremlerle, fırtınalarla sarsıldı.
+        Birkaç kez onarıldı, birkaç kez susturuldu.Ama hiçbir zaman yok olmadı.
+        1967’de kapsamlı restorasyonla yeniden İstanbul’un kalbine oturdu.
+        Artık bir gözcü değil;bir anlatıcıydı.
+        Bugün Galata Kulesi, milyonlarca turistin uğrak noktası.
+        Ama sadece bir manzara değil,bir geçmiş deneyimidir.
+        Çıkarsın,şehre bakarsın,ama aslında kendine bakarsın.
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("/components/info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>
