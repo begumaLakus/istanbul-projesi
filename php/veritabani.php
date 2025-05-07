@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'istanbul_proje';
 $user = 'postgres';
-$pass = 'şükran1234'; // Şükran’ın kurduğu şifre neyse onu gir
+$pass = 'elma1145'; // Şükran’ın kurduğu şifre neyse onu gir
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $pass);
