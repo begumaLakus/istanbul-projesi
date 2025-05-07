@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Beylerbeyi Sarayı</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Boğaz kıyısında zarafetle işlenmiş bir yaz…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/beylerbeyi (2).jpg" >
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Boğaz’ın İncisi: Beylerbeyi Sarayı’nın Zarif Hikâyesi</h2>
+    <pre>
+        İstanbul’un kıyısında bir saray düşün…
+        Ne Dolmabahçe kadar heybetli,
+        Ne Topkapı kadar siyasi...
+        Ama içinde hem sultanların huzuru, hem de yorgun imparatorların son nefesi saklı.
+        İşte o saray: Beylerbeyi Sarayı.
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>  Boğaz’a Bakan Bir Hayal</h2>
+    <pre>
+        Yıl 1861… Osmanlı tahtında, zarafetiyle tanınan bir padişah oturuyor: Sultan Abdülaziz.
+        Denize tutkun, Avrupa’nın mimarisine hayran.Ve onun hayali:
+        Boğaz’a sıfır, batılı ama doğulu bir yazlık saray.
+        İnşa görevi, ünlü mimarlar Sarkis ve Agop Balyan kardeşlere verilir.
+        Ve 3 yıl süren çalışmaların ardından, 1865'te Beylerbeyi Sarayı doğar.
+        Dışarıdan bakınca:
+        - Neoklasik sütunlar, zarif kemerler, simetrik cepheler.
+        İçeri girdiğinde:
+        - Osmanlı'nın geleneksel ruhu, ahşap işlemeler, kristal avizeler.
+        Alt kat serin tutulur, yaz günleri için serinleme alanı olur.Üst katlardaysa ihtişam hâkimdir.
+        Mermer havuzlu salonlar, Çin ve Fransız porselenleri, Hereke halıları...
+        Ama en güzeli nedir biliyor musun?
+        Her pencereden Boğaz girer içeri.Sarayın içinden deniz geçer adeta...
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2> Sarayda Misafirlik</h2>
+    <pre>
+        Burası sadece padişahların yazlığı değil...Aynı zamanda Osmanlı'nın diplomatik yüzü.
+        İran şahları, Fransız prensleri, Avrupa elçileri…Beylerbeyi’nde ağırlanır.
+        Saray sadece bir yapı değil, bir gösteri sahnesidir.
+        En ünlü misafir mi? Fransız İmparatoriçesi Eugénie.Sarayda dolaşırken hayran kalır.
+        Hatta Dolmabahçe'ye geçtiğinde “Bu kadar güzeli yoktu” der.
+        1909. Tahttan indirilen Sultan Abdülhamid, yıllar süren saltanatının ardından sürgün edilir.
+        Ve sürgün yeri olarak seçilen yer neresi olur? Beylerbeyi Sarayı.Hayatı burada geçer.
+        Günlerini sessiz avlularda, denize bakan pencerelerde tamamlar.
+        Beylerbeyi artık bir yazlık değil, bir hatıra sarayıdır.
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Bugün Beylerbeyi</h2>
+    <pre>
+        Bugün saray, müze olarak ziyarete açık.
+        Ama hâlâ bir mahremiyeti var gibidir.
+        Kapıdan girerken hafifçe sesini kısarsın.
+        Çünkü duvarlar hâlâ anlatıyor gibi:
+        "Beni sadece gözle değil, nezaketle gez."
+        Sarayın bahçeleri, çay içilen köşkleri, denize sıfır iskelesi...
+        Her adımda bir huzur, her odada bir tarih gizlidir.
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

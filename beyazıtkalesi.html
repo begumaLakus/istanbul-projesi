@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayasofya’nın Hikâyesi</title>
+  <link rel="stylesheet" href="css/ayasofya-style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+  <header class="section-title">
+    <h1 data-aos="fade-down">Beyazıt Kulesi</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Göğe yükselen bir nöbetin gölgesi…</p>
+  </header>
+
+
+
+  <div class="scroll-wrapper">
+    <section class="panel">
+      <img src="img/beyazıtkulesi.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
+    </section>
+  </div>
+  
+
+  <section class="story-card" data-aos="fade-up">
+    <h2>Zamanın Sırtında Duran Meydan: Beyazıt’ın Hikâyesi</h2>
+    <pre>
+        İstanbul’da bazı yerler vardır...
+        Gün içinde yüzlerce insan geçer, binlerce adım iz bırakır.
+        Ama o yerler hep sessizce izler.
+        İşte Beyazıt Meydanı da öyle bir yerdir.
+        Taşları, sadece insanların değil, imparatorlukların ayak izlerini taşır.
+    </pre>
+  </section>
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2> Fatih’ten Sonra: Yeni Bir İstanbul</h2>
+    <pre>
+        Fatih Sultan Mehmet, İstanbul’u fethettikten sonra şehir bir eğitim ve inanç merkezi haline gelmeye başlamıştı.
+        Ama onun ardından tahta geçen oğlu II. Bayezid, bu vizyonu daha da ileri taşıdı.
+        İşte bu yüzden 1491 yılında, şehrin tam merkezine adını taşıyacak bir eser inşa ettirdi:
+        Beyazıt Camii.Sultanahmet gibi heybetli değil belki...
+        Ama Beyazıt Camii başka bir şey: bilgeliğin taş hali.
+        Mimar Hayreddin tarafından yapıldığı düşünülüyor.Planı, Ayasofya’dan esinlenilmiş.
+        Ama sadeliğiyle, avlusundaki çınarlarıyla, medresesiyle, kütüphanesiyle başka bir ruha sahip.
+        Her taşı; bir sabah ezanını, bir öğrenci duasını, bir yaşlı gölgesini hatırlatır.
+    </pre>
+  </section>
+
+  <!-- KART 2 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Bilimin Kulağına Fısıldayan Meydan</h2>
+    <pre>
+        Beyazıt sadece bir cami değil…
+        Aynı zamanda kitapların ve ilmin de merkezi.
+        Yanında yükselen Beyazıt Devlet Kütüphanesi, Osmanlı’dan bugüne milyonlarca kitabın koruyucusu.
+        Hemen ardındaki İstanbul Üniversitesi, Osmanlı döneminde Darülfünun olarak başladı, 
+        bugün ise ülkenin en köklü bilim yuvası.
+        Yani burada sadece dua değil, düşünce de yükselir. Bir yanda mürekkep, diğer yanda minare sesi…
+</pre>
+  </section>
+
+
+  <!-- KART 1 -->
+  <section class="story-card " data-aos="fade-up">
+    <h2>Yangınlar, Yıkımlar ve Yeniden Doğuş</h2>
+    <pre>
+        Tarih boyunca Beyazıt Meydanı çok şey gördü:
+        - 1509 depremi
+        - 1865 yangını
+        - 1960 darbesinden sonra üniversite olayları...
+        Ama her şey geçer, Beyazıt kalır.
+        Bugün Beyazıt Meydanı bir kesişim noktasıdır:
+        Kapalıçarşı’ya giden yollar
+        Sahaflar çarşısı
+        Öğrenci sesleri
+        Güvercinlerin gölgesi…
+        Taşlar hâlâ sıcak.
+        Ve cami avlusunda hâlâ bir yaşlı dualarını fısıldıyor.
+
+    </pre>
+  </section>
+
+  
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/ayasofya-script.js"></script>
+
+
+
+<!-- Sayfanın en altına, body'nin sonuna -->
+<div id="info-bubble-placeholder"></div>
+<script>
+  fetch("info-bubble.html") // klasör yoluna göre düzelt
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("info-bubble-placeholder").innerHTML = html;
+
+      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
+      const bilgiler = [
+        "İstanbul hem Avrupa hem Asya’dadır.",
+        "Ayasofya’nın içinde dilek taşı vardır.",
+        "Galata Kulesi'nden uçan ilk kişi Hezarfen Çelebi'dir.",
+        "Kapalıçarşı'nın 4000 dükkânı vardır.",
+        "Boğaz’da sabah yunus görebilirsiniz."
+      ];
+
+      let currentIndex = -1;
+      let timeoutId;
+
+      const infoBtn = document.getElementById("info-btn");
+      const infoBox = document.getElementById("info-box");
+      const infoText = document.getElementById("info-text");
+      const closeBtn = document.getElementById("close-btn");
+
+      function showInfoBox() {
+        currentIndex = (currentIndex + 1) % bilgiler.length;
+        infoText.textContent = bilgiler[currentIndex];
+        infoBox.style.display = "block";
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          infoBox.style.display = "none";
+        }, 30000);
+      }
+
+      infoBtn.addEventListener("click", showInfoBox);
+      closeBtn.addEventListener("click", () => infoBox.style.display = "none");
+    });
+</script>

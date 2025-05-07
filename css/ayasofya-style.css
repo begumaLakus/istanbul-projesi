@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0e0e0e;
+    color: #fff;
+  }
+  
+  .section-title {
+    text-align: center;
+    padding: 60px 20px 30px;
+  }
+  
+  .section-title h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .section-title p {
+    color: #bbb;
+    font-size: 1.1rem;
+  }
+
+
+  header.hero-section {
+    text-align: center;
+    padding: 80px 20px 40px;
+    background: linear-gradient(to right, #141e30, #243b55);
+  }
+  
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  
+  .story-card {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+   
+
+  pre {
+    font-family: 'Segoe UI', sans-serif;
+    white-space: pre-wrap;
+  }
+  
+
+  
+  .story-card h2 {
+    color: #ffd700;
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  
+  .story-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  @media (max-width: 768px) {
+    .story-card {
+      padding: 30px 20px;
+      font-size: 1rem;
+    }
+  
+    .section-title h1 {
+      font-size: 2rem;
+    }
+  }
+  
+
+
+  .panel {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* arka plan siyah */
+    overflow: hidden;
+  }
+  
+  .panel img {
+    max-width: 70%;
+    max-height: 100%;
+    object-fit: contain; /* içeriği orantılı ve taşmadan gösterir */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  }
+  
+  
+
+
+
+  .story-card {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .story-card video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  
+  /* Normal story-card yapısı */
+.story-card {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+  /* Bu varsa bozar: */
+  display: block;  /* flex varsa kaldır */
+}
+
+/* H2 başlıkta genişlik sorununu önle */
+.story-card h2 {
+  width: 100%;           /* varsa kaldır: width: 30% vs */
+  margin: 0 0 20px 0;
+  color: #b20606;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  word-break: break-word;  /* kelimeler taşmasın */
+}
+
+/* Paragraf metin */
+.story-card p {
+  margin: 0;
+}
+
+.resim-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* resimler arası boşluk */
+  flex-wrap: wrap; /* küçük ekranda alta geçsin */
+  margin: 40px 0;
+}
+
+.resim-container img {
+  width: 400px; /* istersen yüzdeyle de verebilirsin */
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.resim-container img:hover {
+  transform: scale(1.05);
+}
