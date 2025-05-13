@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $mesaj = htmlspecialchars(trim($_POST["mesaj"]));
 
-    // Tüm alanlar dolu mu?
+    
     if (!empty($ad) && !empty($email) && !empty($mesaj)) {
         try {
             $sql = "INSERT INTO mesajlar (ad, email, mesaj) VALUES (:ad, :email, :mesaj)";

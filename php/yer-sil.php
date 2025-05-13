@@ -1,21 +1,19 @@
 <?php
-require_once "veritabani.php"; // php klasörü içindeki veritabani.php'yi çağırıyoruz
+require_once "veritabani.php";
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = (int) $_GET['id'];
+if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+    $id = (int) $_POST['id'];
 
     try {
         $sql = "DELETE FROM yerler WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
 
-        // Silme başarılıysa yönlendirme yap
-        header("Location: ../admin.php?sil=basarili");
-        exit;
+        echo json_encode(['success' => true]);
     } catch (PDOException $e) {
-        echo "<div style='color: red;'>Silme hatası: " . $e->getMessage() . "</div>";
+        echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     }
 } else {
-    echo "<div style='color: orange;'>Geçersiz ID parametresi.</div>";
+    echo json_encode(['success' => false, 'error' => 'Geçersiz ID']);
 }
 ?>
