@@ -1,13 +1,15 @@
 <?php
+header("Content-Type: application/json");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once "veritabani.php";
 
-    // Girdi temizliği ve kontrolü
-    $ad = htmlspecialchars(trim($_POST["ad"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $mesaj = htmlspecialchars(trim($_POST["mesaj"]));
+    // JSON'dan veri oku
+    $data = json_decode(file_get_contents("php://input"), true);
+    $ad = htmlspecialchars(trim($data["ad"] ?? ""));
+    $email = filter_var(trim($data["email"] ?? ""), FILTER_SANITIZE_EMAIL);
+    $mesaj = htmlspecialchars(trim($data["mesaj"] ?? ""));
 
-    // Tüm alanlar dolu mu?
     if (!empty($ad) && !empty($email) && !empty($mesaj)) {
         try {
             $sql = "INSERT INTO mesajlar (ad, email, mesaj) VALUES (:ad, :email, :mesaj)";
@@ -17,14 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':email' => $email,
                 ':mesaj' => $mesaj
             ]);
-            echo "<div style='color: green;'>Mesaj başarıyla gönderildi.</div>";
+            echo json_encode(["status" => "success", "message" => "Mesaj başarıyla gönderildi."]);
         } catch (PDOException $e) {
-            echo "<div style='color: red;'>Veritabanı hatası: " . $e->getMessage() . "</div>";
+            echo json_encode(["status" => "error", "message" => "Veritabanı hatası: " . $e->getMessage()]);
         }
     } else {
-        echo "<div style='color: red;'>Lütfen tüm alanları doldurunuz.</div>";
+        echo json_encode(["status" => "error", "message" => "Lütfen tüm alanları doldurunuz."]);
     }
 } else {
-    echo "<div style='color: orange;'>Geçersiz istek.</div>";
+    echo json_encode(["status" => "error", "message" => "Geçersiz istek."]);
 }
-?>
