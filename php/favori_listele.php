@@ -8,7 +8,7 @@ header("Content-Type: application/json");
 $pdo = new PDO("pgsql:host=localhost;port=5432;dbname=istanbul_proje", "postgres", "elma1145");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Token kontrolü ZORUNLU
+// Token kontrolü 
 $headers = getallheaders();
 $authHeader = $headers['Authorization'] ?? null;
 
@@ -28,7 +28,7 @@ try {
     exit;
 }
 
-// Favorileri getir
+// Favoriler
 $stmt = $pdo->prepare("SELECT yer_id FROM favoriler WHERE user_id = :user_id ORDER BY tarih DESC");
 $stmt->execute(['user_id' => $userId]);
 $favoriler = $stmt->fetchAll(PDO::FETCH_ASSOC);

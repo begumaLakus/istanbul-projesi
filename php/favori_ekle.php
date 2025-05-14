@@ -29,7 +29,7 @@ try {
     exit;
 }
 
-// JSON veriyi al
+// JSON verisi
 $data = json_decode(file_get_contents("php://input"), true);
 $yer_id = $data['yer_id'] ?? null;
 
@@ -38,7 +38,6 @@ if (!$yer_id) {
     exit;
 }
 
-// Daha önce favoriye eklenmiş mi kontrol et
 $stmt = $pdo->prepare("SELECT * FROM favoriler WHERE user_id = :user_id AND yer_id = :yer_id");
 $stmt->execute([
     'user_id' => $userId,
@@ -51,7 +50,7 @@ if ($existing) {
     exit;
 }
 
-// Favoriye ekle
+// Favoriye ekleme kısmım
 $stmt = $pdo->prepare("INSERT INTO favoriler (user_id, yer_id) VALUES (:user_id, :yer_id)");
 $stmt->execute([
     'user_id' => $userId,

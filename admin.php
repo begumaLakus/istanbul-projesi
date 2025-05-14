@@ -96,7 +96,7 @@ try {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            rowElement.remove(); // Satırı tablodan kaldır
+            rowElement.remove(); 
           } else {
             alert("Silinemedi: " + data.error);
           }

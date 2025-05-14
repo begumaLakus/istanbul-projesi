@@ -17,7 +17,7 @@ if (!$mail || !$sifre) {
     exit;
 }
 
-// Kullanıcıyı kontrol et
+// Kullanıcıyı kontrol etme ksımı
 $stmt = $pdo->prepare("SELECT * FROM users WHERE mail = :mail");
 $stmt->execute(['mail' => $mail]);
 $user = $stmt->fetch();

@@ -29,7 +29,6 @@ try {
     exit;
 }
 
-// JSON veriyi al
 $data = json_decode(file_get_contents("php://input"), true);
 $yer_id = $data['yer_id'] ?? null;
 $yorum = $data['yorum'] ?? null;
@@ -39,7 +38,7 @@ if (!$yer_id || !$yorum) {
     exit;
 }
 
-// Veritabanına ekle
+// Veritabanına ekleme
 $stmt = $pdo->prepare("INSERT INTO yorumlar (user_id, yer_id, yorum) VALUES (:user_id, :yer_id, :yorum)");
 $stmt->execute([
     'user_id' => $userId,

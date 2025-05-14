@@ -4,7 +4,7 @@ use \Firebase\JWT\JWT;
 
 header("Content-Type: application/json");
 
-// Veritabanı bağlantısı (Güncel bilgiler)
+// Veritabanı bağlantısı 
 $host = 'localhost';
 $dbname = 'istanbul_proje';
 $user = 'postgres';

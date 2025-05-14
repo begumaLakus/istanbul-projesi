@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once "veritabani.php";
 
-    // JSON'dan veri oku
+    // JSON'dan veri okuma kısmım
     $data = json_decode(file_get_contents("php://input"), true);
     $ad = htmlspecialchars(trim($data["ad"] ?? ""));
     $email = filter_var(trim($data["email"] ?? ""), FILTER_SANITIZE_EMAIL);

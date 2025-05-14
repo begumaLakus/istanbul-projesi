@@ -1,7 +1,6 @@
 <?php
 require_once "veritabani.php";
 
-// 1. Mevcut veriyi çek (GET ile)
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int) $_GET['id'];
 
@@ -23,7 +22,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     exit;
 }
 
-// 2. Güncelleme işlemi (POST ile)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ad = htmlspecialchars(trim($_POST["ad"]));
     $aciklama = htmlspecialchars(trim($_POST["aciklama"]));

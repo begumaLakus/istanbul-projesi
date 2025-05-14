@@ -1,5 +1,5 @@
 <?php
-require_once "veritabani.php"; // php klasörü içindeki veritabani.php'yi çağırıyoruz
+require_once "veritabani.php"; 
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int) $_GET['id'];
@@ -9,7 +9,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
 
-        // Silme başarılıysa yönlendirme yap
         header("Location: ../admin.php?sil=basarili");
         exit;
     } catch (PDOException $e) {
