@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap / Kayıt Ol</title>
+    <link rel="stylesheet" href="css/giris-style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <div id="formBaslik">Giriş Yap</div>
+        
+        <div id="kayitForm" class="form" style="display: none;">
+            <input type="text" id="adSoyad" placeholder="Ad Soyad">
+            <input type="email" id="kayitMail" placeholder="E-posta">
+            <input type="password" id="kayitSifre" placeholder="Şifre">
+            <button onclick="kayitOl()">Kayıt Ol</button>
+            <p class="toggle-link" onclick="toggleForm('giris')">Zaten hesabın var mı? Giriş Yap</p>
+        </div>
+
+        <div id="girisForm" class="form">
+            <input type="email" id="girisMail" placeholder="E-posta">
+            <input type="password" id="girisSifre" placeholder="Şifre">
+            <button onclick="girisYap()">Giriş Yap</button>
+            <p class="toggle-link" onclick="toggleForm('kayit')">Hesabın yok mu? Kayıt Ol</p>
+        </div>
+    </div>
+
+    <script src="js/giris.js"></script>
+</body>
+</html>
+

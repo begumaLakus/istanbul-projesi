@@ -93,8 +93,39 @@
     </p>
   </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="js/ayasofya-script.js"></script>
+
+
+
+
+
+
+<div class="yorumlar-container">
+    <h2>Yorumlar</h2>
+    <div id="yorumListesi">Yorumlar yükleniyor...</div>
+
+    <!-- Yorum Formu (Sadece giriş yapanlara) -->
+    <div id="yorumForm" style="display: none;">
+        <h4>Yorum Yap</h4>
+        <textarea id="yorumMetni" placeholder="Yorumunuzu yazın..."></textarea>
+        <button onclick="yorumGonder()">Gönder</button>
+    </div>
+
+    <!-- Giriş yapmayanlara uyarı -->
+    <div id="girisUyarisi" style="display: none;" class="uyari">
+        Yorum yapabilmek için <a href="giris.html">Giriş Yap</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="js/ayasofya-script.js"></script>
+<script src="js/yorumlar.js"></script>
 
 
 

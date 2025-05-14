@@ -180,3 +180,92 @@ body {
 .resim-container img:hover {
   transform: scale(1.05);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.yorumlar-container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px; /* Artırıldı */
+    width: 90%;
+    margin: 60px auto;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.yorumlar-container h2 {
+    color: #e84118;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+#yorumListesi {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+#yorumForm h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#yorumForm textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    background-color: #2c2c2c;
+    color: white;
+    margin-bottom: 15px;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+#yorumForm button {
+    background-color: #e84118;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#yorumForm button:hover {
+    background-color: #c23616;
+    transform: scale(1.05);
+}
+
+.uyari {
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e84118;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.uyari a {
+    color: #e84118;
+    text-decoration: underline;
+}
