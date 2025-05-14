@@ -9,19 +9,16 @@
 </head>
 <body>
   
-
   <header class="section-title">
     <h1 data-aos="fade-down">Yerebatan Sarnıcı</h1>
     <p data-aos="fade-up" data-aos-delay="200">Suyun altında fısıldayan taş…</p>
   </header>
-
 
   <div class="resim-container">
     <img src="img/yerebatan.jpg" alt="Resim 1">
     <img src="img/yerebatan1.jpg" alt="Resim 2">
   </div>
   
-
   <section class="story-card" data-aos="fade-up">
     <h2>Suyun Altındaki Sessizlik: Yerebatan Sarnıcı’nın Gölgesinde</h2>
     <pre>
@@ -33,7 +30,6 @@
     </pre>
   </section>
 
-  <!-- KART 1 -->
   <section class="story-card " data-aos="fade-up">
     <h2>Bir Su Sarayı Doğuyor</h2>
     <p>
@@ -47,7 +43,6 @@
     </p>
   </section>
 
-  <!-- KART 2 -->
   <section class="story-card " data-aos="fade-up">
     <h2>Mimarlığın Derin Sessizliği</h2>
     <pre>
@@ -61,8 +56,6 @@
 </pre>
   </section>
 
-
-  <!-- KART 1 -->
   <section class="story-card " data-aos="fade-up">
     <h2>Medusa’nın Başı: Efsanenin Gölgesi</h2>
     <p>
@@ -75,8 +68,6 @@
     </p>
   </section>
 
-
-  <!-- KART 3 -->
   <section class="story-card" data-aos="fade-up">
     <h2>Zamanla Kayıp, Suyla Hatırlanan</h2>
     <pre>
@@ -95,21 +86,33 @@
   </section>
 
   
+  <div class="yorumlar-container">
+    <h2>Yorumlar</h2>
+    <div id="yorumListesi">Yorumlar yükleniyor...</div>
+
+    <div id="yorumForm" style="display: none;">
+        <h4>Yorum Yap</h4>
+        <textarea id="yorumMetni" placeholder="Yorumunuzu yazın..."></textarea>
+        <button onclick="yorumGonder()">Gönder</button>
+    </div>
+
+    <div id="girisUyarisi" style="display: none;" class="uyari">
+        Yorum yapabilmek için <a href="giris.html">Giriş Yap</a>
+    </div>
+</div>
+
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="js/ayasofya-script.js"></script>
+<script src="js/yorumlar.js"></script>
 
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html") 
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",

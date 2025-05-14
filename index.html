@@ -3,38 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Anasayfa</title>
+  <title>Anasayfa</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Arka Plan Video ve Giriş Alanı -->
+<div id="girisAlani">
+    <button onclick="window.location.href='giris.html'">Giriş Yap</button>
+</div>
   <header class="hero-section">
     <video autoplay muted loop class="bg-video">
       <source src="video/istanbul2.mp4" type="video/mp4">
     </video>
     <div class="overlay">
       <h1 data-aos="fade-down">İstanbul’un Kalbine Girmeye Hazır Mısınız?</h1>
-      <p data-aos="fade-up" data-aos-delay="200">“Binlerce yılın yankısı, taşların arasından fısıldıyor…
-      Efsanelerle örülmüş bir şehrin kalbine adım atmaya hazır mısınız?”</p>
-     
+      <p data-aos="fade-up" data-aos-delay="200">“Binlerce yılın yankısı, taşların arasından fısıldıyor… Efsanelerle örülmüş bir şehrin kalbine adım atmaya hazır mısınız?”</p>
     </div>
   </header>
-
-
   <section class="scroll-yazi">
     <p class="scroll-text">
         "Yedi Tepeli Şehirde Zaman Durmaz…Tarihin izinde, efsanelerin gölgesinde; Boğaz’ın kıyısından surların kalbine uzanan bir İstanbul yolculuğuna hoş geldiniz.".
     </p>
   </section>
   
-
   <section class="services-section">
     <h2>SİTEMİZİ KEŞFEDİN</h2>
     <p>“İstanbul’un ruhunu, kod satırlarına işledik.”</p>
   
-
-
+ <div class="service-card" onclick="profilKontrol()" style="cursor: pointer;">
+  <h3>👤 PROFİL</h3>
+</div>
 
     <div class="service-card" onclick="location.href='tarihi-hazineler.html'" style="cursor: pointer;">
       <h3>🏛️ TARİHİ HAZİNELER</h3>
@@ -60,23 +58,18 @@
     <p>&copy; 2025 İstanbul Tarihi | Galata Kulesi</p>
   </footer>
 
-  <!-- Scroll Animasyon JS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="js/script.js"></script>
+ <script src="js/kullanici.js"></script>
 
 
-
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",
@@ -107,27 +100,8 @@
       infoBtn.addEventListener("click", showInfoBox);
       closeBtn.addEventListener("click", () => infoBox.style.display = "none");
     });
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

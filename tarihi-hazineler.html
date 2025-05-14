@@ -9,25 +9,18 @@
 </head>
 <body>
 
-
-
-<!-- Video Arka Plan -->
 <div class="hero">
   <video autoplay muted loop playsinline class="background-video">
     <source src="video/istanbul3.mp4" type="video/mp4" />
     Tarayıcınız video etiketini desteklemiyor.
   </video>
 
-  <!-- Başlık İçeriği -->
   <div class="hero-content">
     <h1>İstanbul’un Tarihi Hazineleri</h1>
     <p>Zamanda yolculuğa çıkmaya hazır mısınız?</p>
   </div>
 </div>
 
-
-
-  <!-- Dini ve Anıtsal Yapılar -->
   <section class="card-section">
     <h2 data-aos="fade-right">🕌 Dini ve Anıtsal Yapılar</h2>
     <div class="card-container">
@@ -57,7 +50,6 @@
   </section>
   
 
-  <!-- Saraylar ve Köşkler -->
   <section class="card-section">
     <h2 data-aos="fade-left">🏰 Saraylar ve Köşkler</h2>
     <div class="card-container">
@@ -87,7 +79,6 @@
     </div>
   </section>
 
-  <!-- Antik Yapılar -->
   <section class="card-section">
     <h2 data-aos="fade-right">🏛️ Antik Yapılar Kuleler Ve Surlar</h2>
     <div class="card-container">
@@ -116,7 +107,6 @@
     </div>
   </section>
 
-  <!-- Çarşılar ve Hanlar -->
   <section class="card-section">
     <h2 data-aos="fade-right">🛍️ Çarşılar ve Hanlar</h2>
     <div class="card-container">
@@ -145,7 +135,6 @@
     </div>
   </section>
 
-
   <footer>
     <p>&copy; 2025 İstanbul Tarihi Web Projesi</p>
   </footer>
@@ -155,19 +144,13 @@
     AOS.init({ duration: 1000, once: true });
   </script>
 
-
-
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",
@@ -199,23 +182,6 @@
       closeBtn.addEventListener("click", () => infoBox.style.display = "none");
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
