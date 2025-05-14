@@ -9,12 +9,10 @@
 </head>
 <body>
   
-
   <header class="section-title">
     <h1 data-aos="fade-down">Fener Rum Patrikhanesi</h1>
     <p data-aos="fade-up" data-aos-delay="200">Ruhaniyetin bin yıllık nabzı…</p>
   </header>
-
 
   <div class="scroll-wrapper">
     <section class="panel">
@@ -22,8 +20,6 @@
     </section>
   </div>
 
-
-  <!-- KART 1 -->
   <section class="story-card" data-aos="fade-up">
     <h2>Taşta Saklı İnanç: Fener Rum Patrikhanesi’nin Hikâyesi</h2>
     <pre>
@@ -35,7 +31,6 @@
     </pre>
   </section>
 
-  <!-- KART 2 -->
   <section class="story-card" data-aos="fade-up">
     <h2>Bir İmparatorlukla Büyüyen İnanç</h2>
     <pre>
@@ -50,7 +45,6 @@
     </pre>
   </section>
 
-  <!-- KART 1 -->
   <section class="story-card" data-aos="fade-up">
     <h2>1453: Fetih ve Yeniden Doğuş</h2>
     <pre>
@@ -93,87 +87,33 @@
     </p>
   </section>
 
-
-
-
-
-
-
 <div class="yorumlar-container">
     <h2>Yorumlar</h2>
     <div id="yorumListesi">Yorumlar yükleniyor...</div>
 
-    <!-- Yorum Formu (Sadece giriş yapanlara) -->
     <div id="yorumForm" style="display: none;">
         <h4>Yorum Yap</h4>
         <textarea id="yorumMetni" placeholder="Yorumunuzu yazın..."></textarea>
         <button onclick="yorumGonder()">Gönder</button>
     </div>
 
-    <!-- Giriş yapmayanlara uyarı -->
     <div id="girisUyarisi" style="display: none;" class="uyari">
         Yorum yapabilmek için <a href="giris.html">Giriş Yap</a>
     </div>
 </div>
 
 
-
-
-
-
-
-
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="js/ayasofya-script.js"></script>
 <script src="js/yorumlar.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html") 
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",
@@ -205,25 +145,6 @@
       closeBtn.addEventListener("click", () => infoBox.style.display = "none");
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

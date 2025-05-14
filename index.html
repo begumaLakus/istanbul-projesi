@@ -8,16 +8,9 @@
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
-  <!-- GİRİŞ ALANI -->
-
 <div id="girisAlani">
     <button onclick="window.location.href='giris.html'">Giriş Yap</button>
 </div>
-
-
-
-  <!-- Arka Plan Video ve Giriş Alanı -->
   <header class="hero-section">
     <video autoplay muted loop class="bg-video">
       <source src="video/istanbul2.mp4" type="video/mp4">
@@ -27,20 +20,16 @@
       <p data-aos="fade-up" data-aos-delay="200">“Binlerce yılın yankısı, taşların arasından fısıldıyor… Efsanelerle örülmüş bir şehrin kalbine adım atmaya hazır mısınız?”</p>
     </div>
   </header>
-
-
   <section class="scroll-yazi">
     <p class="scroll-text">
         "Yedi Tepeli Şehirde Zaman Durmaz…Tarihin izinde, efsanelerin gölgesinde; Boğaz’ın kıyısından surların kalbine uzanan bir İstanbul yolculuğuna hoş geldiniz.".
     </p>
   </section>
   
-
   <section class="services-section">
     <h2>SİTEMİZİ KEŞFEDİN</h2>
     <p>“İstanbul’un ruhunu, kod satırlarına işledik.”</p>
   
-
  <div class="service-card" onclick="profilKontrol()" style="cursor: pointer;">
   <h3>👤 PROFİL</h3>
 </div>
@@ -69,24 +58,18 @@
     <p>&copy; 2025 İstanbul Tarihi | Galata Kulesi</p>
   </footer>
 
-  <!-- Scroll Animasyon JS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="js/script.js"></script>
  <script src="js/kullanici.js"></script>
 
 
-
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",
@@ -118,13 +101,7 @@
       closeBtn.addEventListener("click", () => infoBox.style.display = "none");
     });
 
-    
-
-
-
-
 </script>
-
 
 </body>
 </html>

@@ -9,19 +9,15 @@
 </head>
 <body>
   
-
   <header class="section-title">
     <h1 data-aos="fade-down">Ayasofya: Taşa Kazınmış Zaman</h1>
     <p data-aos="fade-up" data-aos-delay="200">Kubbenin altında saklı yüzyıllar…</p>
   </header>
 
-
-
   <section class="story-card">
     <video src="video/ayasofya1.mp4" autoplay muted loop playsinline></video>
   </section>
   
-
   <section class="story-card" data-aos="fade-up">
     <h2>Konstantinos’un Vizyonu</h2>
     <p>
@@ -43,7 +39,6 @@ Bir diriliş hikâyesidir.
     </p>
   </section>
 
-  <!-- KART 1 -->
   <section class="story-card " data-aos="fade-up">
     <h2>I.GALATA'NIN İNŞASI NASIL GERÇEKLEŞTİ VE SONUÇLANDI</h2>
     <p>
@@ -68,7 +63,6 @@ Bir diriliş hikâyesidir.
     </p>
   </section>
 
-  <!-- KART 2 -->
   <section class="story-card " data-aos="fade-up">
     <h2>II.GALATA'NIN NASIL GERÇEKLEŞTİ VE SONUÇLANDI</h2>
     <pre>
@@ -122,8 +116,6 @@ Bu, kendi halkına, tarihe ve Tanrı’ya seslenişti:
 </pre>
   </section>
 
-
-  <!-- KART 1 -->
   <section class="story-card " data-aos="fade-up">
     <h2>I.GALATA'NIN İNŞASI NASIL GERÇEKLEŞTİ VE SONUÇLANDI</h2>
     <p>
@@ -153,7 +145,6 @@ Bu, kendi halkına, tarihe ve Tanrı’ya seslenişti:
     </section>
   </div>
 
-  <!-- KART 3 -->
   <section class="story-card" data-aos="fade-up">
     <h2>Yeniden Doğuş: Üçüncü Ayasofya</h2>
     <pre>
@@ -197,17 +188,12 @@ Fatih’le başlayan bu yeni dönem, kubbenin altına hem tekbir, hem amin, hem 
     </pre>
   </section>
 
-
-
   <div class="scroll-wrapper">
     <section class="panel">
       <img src="img/ayasofya1.jpg" alt="Ayasofya’nın enine kesiti (Antoniades’den)">
     </section>
   </div>
 
-
-
-  <!-- KART 4 -->
   <section class="story-card" data-aos="fade-up">
     <h2>Kubbenin altında saklı yüzyıllar</h2>
     <pre>
@@ -224,43 +210,32 @@ O, taş kesilmiş zaman,göğe tutunan bir dua,ve insanlığın kendini aşabild
     </pre>
   </section>
 
+<div class="yorumlar-container">
+    <h2>Yorumlar</h2>
+    <div id="yorumListesi">Yorumlar yükleniyor...</div>
 
+    <div id="yorumForm" style="display: none;">
+        <h4>Yorum Yap</h4>
+        <textarea id="yorumMetni" placeholder="Yorumunuzu yazın..."></textarea>
+        <button onclick="yorumGonder()">Gönder</button>
+    </div>
+
+    <div id="girisUyarisi" style="display: none;" class="uyari">
+        Yorum yapabilmek için <a href="giris.html">Giriş Yap</a>
+    </div>
+</div>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="js/ayasofya-script.js"></script>
+<script src="js/yorumlar.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Sayfanın en altına, body'nin sonuna -->
 <div id="info-bubble-placeholder"></div>
 <script>
-  fetch("info-bubble.html") // klasör yoluna göre düzelt
+  fetch("info-bubble.html") 
     .then(res => res.text())
     .then(html => {
       document.getElementById("info-bubble-placeholder").innerHTML = html;
 
-      // Burada butonlar DOM'a yüklendikten sonra event tanımlanır
       const bilgiler = [
         "İstanbul hem Avrupa hem Asya’dadır.",
         "Ayasofya’nın içinde dilek taşı vardır.",
@@ -292,22 +267,6 @@ O, taş kesilmiş zaman,göğe tutunan bir dua,ve insanlığın kendini aşabild
       closeBtn.addEventListener("click", () => infoBox.style.display = "none");
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
