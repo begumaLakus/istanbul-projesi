@@ -18,8 +18,8 @@ Veritabanı	PostgreSQL
 Versiyon Kontrol	Git, GitHub
 
 Ekip
-Begüm	Backend & Formlar & Admin Panel& Veritabanı bağlantısı
-Nisa	Frontend & Tarihi Hazineler
+Begüm	Backend & Formlar & Admin Panel & Veritabanı bağlantısı & API işlemleri
+Nisa	Frontend Anasayfa & Tarihi Hazineler & Kullanıcı giriş & iletişim
 Kaan	Frontend & Harita & Hakkımızda
 Şükran	Veritabanı & Backend Entegrasyonu
 
