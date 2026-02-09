@@ -1,50 +1,36 @@
- İstanbul'un Tarihi ve Kültürel Hazineleri Web Projesi
-Bu proje, İstanbul'un tarihi, kültürel ve doğal güzelliklerini dijital ortamda tanıtmayı amaçlayan kapsamlı bir web uygulamasıdır. İstanbul'un benzersiz yapıları, halk hikâyeleri, mitleri ve bilinmeyen yönleri interaktif bir şekilde kullanıcıya sunulmuştur.
+# Istanbul: A Modern Web Exploration 🗼
 
-🎯 Projenin Amacı
-İstanbul'un tarihi ve kültürel mirasını kullanıcı dostu bir arayüzle tanıtmak ve kullanıcıların İstanbul'u keşfederken interaktif deneyimler yaşamasını sağlamaktır.
-Projede kullanıcılar:
+A comprehensive full-stack web application designed to showcase Istanbul's cultural, historical, and urban heritage through advanced internet technologies.
 
-İstanbul'un önemli yapıları hakkında bilgi alabilir.
-Halk hikayelerini ve mitleri okuyabilir.
-Harita üzerinden yapıları ve bölgeleri inceleyebilir.
-Kendi profillerinde gezdikleri yerleri, yorumlarını ve favorilerini yönetebilir.
+---
 
-🛠 Kullanılan Teknolojiler
-Katman	Teknoloji
-Frontend	HTML, CSS, JavaScript, AJAX
-Backend	PHP, Node.js
-Veritabanı	PostgreSQL
-Versiyon Kontrol	Git, GitHub
+### 🌟 Project Vision
+This project serves as a digital transformation of Istanbul's historical narrative. It aims to introduce the city's unique structures, folk tales, and myths through a user-friendly, interactive interface.
 
-Ekip
-Begüm	Backend & Formlar & Admin Panel & Veritabanı bağlantısı & API işlemleri
-Nisa	Frontend Anasayfa & Tarihi Hazineler & Kullanıcı giriş & iletişim
-Kaan	Frontend & Harita & Hakkımızda
-Şükran	Veritabanı & Backend Entegrasyonu
+### 🚀 Technical Implementation (Tech Stack)
+- **Backend:** PHP & Node.js
+- **Database:** PostgreSQL
+- **Frontend:** HTML5, CSS3, JavaScript (AJAX)
+- **Version Control:** Managed via Git & GitHub
 
-👥 Kullanıcı Rolleri
-Ziyaretçi: İstanbul yapıları ve hikayelerini görüntüleyebilir.
-Kayıtlı Kullanıcı: Favori yerlerini ekleyebilir, yorum yapabilir.
-Admin: Yönetim paneli üzerinden içerik yönetimi yapabilir.
+### 🛠️ Key Features
+- **Dynamic Landmark Guide:** Interactive modules for historical sites and palaces.
+- **Storytelling Engine:** Digital information cards for myths and folk tales.
+- **Geospatial Visualization:** Integrated mapping systems for regional exploration.
+- **User Management:** Secure authentication and personalized profile dashboards.
 
-📌 Proje Özellikleri
-📍 İstanbul'un tarihî yapıları, çarşılar, saraylar, kuleler ve daha fazlası.
-📖 Hikayeler, mitler ve bilinmeyen yönleriyle bilgi kartları.
-🌍 Harita üzerinden yapıların interaktif görüntülenmesi.
-🧑‍💻 Kullanıcı kayıt ve giriş sistemi.
-💬 Kullanıcı yorumları ekleme ve listeleme.
-⭐ Favori yerler ekleme, profilden yönetme.
-🛡️ Admin paneli ile içerik ve kullanıcı kontrolü.
+### 🏗️ Engineering Roles & Contributions
+- **Backend Developer (@begumaLakus):** Developed server-side logic, database architecture, and API integrations. Responsible for the administrative dashboard and ensuring seamless data flow between the frontend and PostgreSQL.
+- **Frontend Specialist (@nisacibik):** Developed the Landing Page, User Authentication UI, and Core Cultural modules.
+- **Frontend & Geospatial Mapping (@Kaan):** Integrated interactive mapping systems and developed the "About Us" architectural showcase, focusing on user-centric navigation.
+- **Database & Systems Integration (@Sukran):** Contributed to the relational database schema design and optimized backend-to-frontend synchronization for data integrity.
 
-📂 Kurulum ve Çalıştırma
-Projeyi klonlayın:
-1-git clone https://github.com/begumaLakus/istanbul-projesi.git
-2-PostgreSQL veritabanınızı kurun ve php/veritabani.php dosyasındaki bağlantı bilgilerini güncelleyin.
-3-Backend API'lerini PHP ve Node.js üzerinden çalıştırın.
-4-Frontend arayüzünü tarayıcıda açarak deneyimleyin.
+---
 
-📑 Lisans
-Bu proje yalnızca eğitim amaçlıdır. Tüm hakları saklıdır.
+### 📂 Installation
+1. `git clone https://github.com/begumaLakus/istanbul-projesi.git`
+2. Initialize local PostgreSQL and update connection strings.
+3. Configure local `.env` for database credentials.
 
-
+### 📑 Licensing
+Developed for educational purposes. All rights reserved.
