@@ -1,1 +1,13 @@
+# Dependency directories
 /vendor/
+node_modules/
+
+# Local environment variables (Security!)
+.env
+.env.local
+
+# IDE and System files
+.vscode/
+.idea/
+.DS_Store
+*.log/vendor/
